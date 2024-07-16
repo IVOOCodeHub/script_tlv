@@ -1,0 +1,31 @@
+$fontColorPrimary: #36395a;
+
+$colorPrimary: #fffff4;
+$colorSecondary: #36395a;
+$colorTertiary: #367af6;
+
+$tabletteBreakpoint: 720px;
+$desktopBreakpoint: 1440px;
+
+// "fiche" types primary colors
+$alreadyCalled: #ffffff;
+$neverCalled: #ffffff;
+$recycled: #ffffff;
+$client: #7d262d;
+
+// "fiche" types background colors
+$alreadyCalledBackground: linear-gradient(
+  35deg,
+  lighten($alreadyCalled, 30%),
+  $alreadyCalled
+);
+
+$neverCalledBackground: linear-gradient(
+  35deg,
+  lighten($neverCalled, 30%),
+  $neverCalled
+);
+
+$recycledBackground: linear-gradient(35deg, lighten($recycled, 30%), $recycled);
+
+$clientBackground: linear-gradient(35deg, lighten($client, 30%), $client);

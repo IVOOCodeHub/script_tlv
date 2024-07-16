@@ -1,0 +1,19 @@
+.clockContainer {
+  width: 100px;
+}
+
+.clock {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #fffff4;
+  // add a text shadow, to make the text more readable
+  text-shadow:
+    1px 0 #000000,
+    -1px 0 #000000,
+    0 1px #000000,
+    0 -1px #000000,
+    .5px .5px #000000,
+    -.5px -.5px #000000,
+    .5px -.5px #000000,
+    -.5px .5px #000000;
+}

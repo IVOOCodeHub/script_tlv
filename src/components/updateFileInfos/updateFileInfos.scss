@@ -1,0 +1,44 @@
+@use '../../utils/styles/variables' as vars;
+
+#UpdateFileInfos {
+  padding: 0.5em;
+  border-radius: 0 0 0 8px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-self: flex-end;
+  gap: 0.4em;
+  background: vars.$detailsFicheBackground;
+}
+
+#UpdateFileInfos .inputContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+#UpdateFileInfos .inputContainer label {
+  text-align: left;
+}
+
+#UpdateFileInfos .inputContainer input {
+  width: 430px;
+  padding: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px inset #36395a;
+}
+
+#UpdateFileInfos .inputContainer textarea {
+  width: 430px;
+  padding: 0.2em;
+  border-radius: 4px;
+  border: 1px inset #36395a;
+}
+
+#UpdateFileInfos .inputContainer select {
+  margin: auto;
+}

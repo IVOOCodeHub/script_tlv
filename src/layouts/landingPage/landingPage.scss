@@ -1,6 +1,8 @@
 @use '../../utils/styles/mixins' as mixins;
 @use '../../utils/styles/variables' as vars;
 
+// GENERAL STYLES
+
 #landingPage {
   max-height: 100dvh;
   min-height: 100dvh;
@@ -22,12 +24,16 @@
   background: vars.$clientBackground;
 }
 
+// HEADER CONTENT
+
 #landingHeader {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 1.5em;
   border-bottom: 2px solid #36395a;
+  min-height: 20dvh;
+  max-height: 20dvh;
 }
 
 #landingHeader .leftContainer,
@@ -94,4 +100,34 @@
   width: 140px !important;
   font-size: 0.8em !important;
   @include mixins.whiteButton();
+}
+
+
+// MAIN CONTENT
+
+#landingMain {
+  background: #fffff4;
+  display: flex;
+  width: 100%;
+}
+
+#landingMain .leftContainer,
+#landingMain .rightContainer {
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+}
+
+// FOOTER CONTENT
+
+#landingFooter {
+  display: flex;
+  width: 100%;
+  max-height: 20dvh;
+  min-height: 20dvh;
+}
+
+#landingFooter .leftContainer,
+#landingFooter .rightContainer {
+  width: 50%;
 }

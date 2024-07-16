@@ -6,7 +6,7 @@ import { ReactElement } from 'react'
 
 export default function LandingHeaderTable(): ReactElement {
   return (
-    <section id={'landingHeaderTable'}>
+    <div id={'landingHeaderTable'}>
       <table>
         <thead>
           <tr>
@@ -35,6 +35,6 @@ export default function LandingHeaderTable(): ReactElement {
         <p className={'progressBar'}>5</p>
         <p>Progression maxi du PA atteinte le 08/11/2018 14:40</p>
       </div>
-    </section>
+    </div>
   )
 }

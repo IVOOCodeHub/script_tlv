@@ -1,9 +1,9 @@
 // types
-import { ReactElement } from 'react'
+import { MouseEvent, ReactElement } from 'react'
 
 interface IButton {
   textContent: string
-  onClick: () => void
+  onClick: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 export default function Button({ props }: { props: IButton }): ReactElement {

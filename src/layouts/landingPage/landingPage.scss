@@ -102,7 +102,6 @@
   @include mixins.whiteButton();
 }
 
-
 // MAIN CONTENT
 
 #landingMain {
@@ -118,6 +117,11 @@
   flex-flow: column;
 }
 
+#landingMain .leftContainer {
+  align-items: center;
+  justify-content: center;
+}
+
 // FOOTER CONTENT
 
 #landingFooter {
@@ -125,9 +129,44 @@
   width: 100%;
   max-height: 20dvh;
   min-height: 20dvh;
+  padding: 1.5em;
 }
 
 #landingFooter .leftContainer,
 #landingFooter .rightContainer {
   width: 50%;
+}
+
+#landingFooter .leftContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+#landingFooter .leftContainer button {
+  width: 145px !important;
+  font-size: 16px !important;
+}
+
+#landingFooter .leftContainer button:first-of-type {
+  @include mixins.redButton();
+}
+
+#landingFooter .leftContainer button:last-of-type {
+  @include mixins.button();
+}
+
+#landingFooter .rightContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1em;
+}
+
+#landingFooter .rightContainer .topWrapper button {
+  font-size: 24px !important;
+  width: 200px !important;
+  @include mixins.whiteButton();
 }

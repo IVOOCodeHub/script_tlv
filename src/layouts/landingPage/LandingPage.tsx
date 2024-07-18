@@ -14,6 +14,8 @@ import LandingHeaderTable from '../../components/landingHeaderTable/LandingHeade
 import UpdateFileInfos from '../../components/updateFileInfos/UpdateFileInfos'
 import Calendar from '../../components/calendar/CalendarComponent.tsx'
 import QuickRDV from '../../components/quickRDV/QuickRDV.tsx'
+import StatusButtons from '../../components/statusButtons/StatusButtons'
+import CallPenetration from '../../components/callPenetration/CallPenetration'
 
 export default function LandingPage(): ReactElement {
   // todo : remplace mockup with real data
@@ -82,7 +84,9 @@ export default function LandingPage(): ReactElement {
       </section>
 
       <section id={'landingMain'}>
-        <div className={'leftContainer'}></div>
+        <div className={'leftContainer'}>
+          <StatusButtons />
+        </div>
         <div className={'rightContainer'}>
           <UpdateFileInfos />
           <Calendar onDateSelect={setSelectedDate} />
@@ -91,8 +95,24 @@ export default function LandingPage(): ReactElement {
       </section>
 
       <section id={'landingFooter'} className={defineBackground()}>
-        <div className={'leftContainer'}></div>
-        <div className={'rightContainer'}></div>
+        <div className={'leftContainer'}>
+          <Button
+            props={{ textContent: 'Objection', onClick: (): void => {} }}
+          />
+          <Button
+            props={{ textContent: "Plan d'appel", onClick: (): void => {} }}
+          />
+        </div>
+        <div className={'rightContainer'}>
+          <div className={'topWrapper'}>
+            <Button
+              props={{ textContent: 'Commande', onClick: (): void => {} }}
+            />
+          </div>
+          <div className={'bottomWrapper'}>
+            <CallPenetration />
+          </div>
+        </div>
       </section>
     </article>
   )

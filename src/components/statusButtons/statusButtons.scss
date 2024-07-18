@@ -1,0 +1,37 @@
+@use '../../utils/styles/variables' as vars;
+@use '../../utils/styles/mixins' as mixins;
+
+#statusButtons {
+  width: 100%;
+  display: flex;
+}
+
+#statusButtons .leftContainer,
+#statusButtons .middleContainer,
+#statusButtons .rightContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1em;
+}
+
+#statusButtons .leftContainer button,
+#statusButtons .middleContainer button,
+#statusButtons .rightContainer button {
+  width: 175px !important;
+  @include mixins.crimsonButton();
+}
+
+// the R S S button have to be bigger than the other ones.
+#statusButtons .rightContainer button:last-of-type {
+  height: 100% !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(180deg, #6a6a6a 0%, #1e1e1e 100%);
+  box-shadow:
+    inset 0 0.8px 0 -0.25px rgba(255, 255, 255, 0.2),
+    0 0.5px 1.5px rgb(30, 30, 30),
+    0 0 0 3.5px rgba(255, 255, 255, 0.2);
+}

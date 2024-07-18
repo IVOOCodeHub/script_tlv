@@ -36,3 +36,6 @@ $detailsFicheBackground: linear-gradient(
   lighten($detailsFicheBackgroundColor, 15%),
   $detailsFicheBackgroundColor
 );
+
+$greenGradient: linear-gradient(180deg, #00cc66 0%, #009449 100%);
+$buttonGreenGradient: linear-gradient(180deg, #00af59 0%, #00783b 200%);

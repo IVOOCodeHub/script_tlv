@@ -1,0 +1,25 @@
+@use '../../utils/styles/mixins' as mixins;
+@use '../../utils/styles/variables' as vars;
+
+#callPenetration {
+  display: flex;
+  gap: .5em;
+  background: vars.$greenGradient;
+  padding: .5em;
+  border-radius: 8px;
+  transition: width 300ms ease;
+}
+
+#callPenetration .penIndicator {
+  font-size: 1dvw;
+  width: 11em;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  @include mixins.greyButton();
+}
+
+#callPenetration .valid {
+  background: vars.$buttonGreenGradient !important;
+}

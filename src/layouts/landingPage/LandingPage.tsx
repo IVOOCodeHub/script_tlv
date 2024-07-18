@@ -40,7 +40,7 @@ export default function LandingPage(): ReactElement {
   }
 
   return (
-    <article id={'landingPage'}>
+    <main id={'landingPage'}>
       <section id={'landingHeader'} className={defineBackground()}>
         <div className={'leftContainer'}>
           <Clock />
@@ -114,6 +114,6 @@ export default function LandingPage(): ReactElement {
           </div>
         </div>
       </section>
-    </article>
+    </main>
   )
 }

@@ -13,17 +13,17 @@ import {
 } from 'react-router-dom'
 
 // layouts
+import AuthForm from './layouts/authForm/AuthForm'
 import LandingPage from './layouts/landingPage/LandingPage'
 
 function App(): ReactElement {
   return (
     <Router>
-      <main>
-        <Routes>
-          <Route path={'/'} element={<Navigate to={'/landing'} />} />
-          <Route path={'/landing'} element={<LandingPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path={'/'} element={<Navigate to={'/landing'} />} />
+        <Route path={'/auth'} element={<AuthForm />} />
+        <Route path={'/landing'} element={<LandingPage />} />
+      </Routes>
     </Router>
   )
 }

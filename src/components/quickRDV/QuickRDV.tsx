@@ -10,6 +10,9 @@ interface QuickRDVProps {
 // hooks
 import { useState, useEffect } from 'react'
 
+// utils
+import { formatPhoneNumber } from '../../utils/scripts/Utils'
+
 // components
 import Button from '../button/Button'
 
@@ -22,7 +25,7 @@ export default function QuickRDV({
   useEffect((): void => {
     if (selectedDate) {
       const date: Date = new Date(selectedDate)
-      date.setDate(date.getDate() +1)
+      date.setDate(date.getDate() + 1)
       const formattedDate: string = date.toISOString().split('T')[0]
       setDate(formattedDate)
     }
@@ -37,11 +40,6 @@ export default function QuickRDV({
 
   const removeDate = (): void => {
     setDate('')
-  }
-
-  const formatPhoneNumber = (input: string): string => {
-    const digits: string = input.replace(/\D/g, '')
-    return digits.replace(/(\d{2})(?=\d)/g, '$1.')
   }
 
   const handleContactNumberChange = (

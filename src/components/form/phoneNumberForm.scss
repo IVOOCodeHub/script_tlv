@@ -1,0 +1,37 @@
+@use '../../utils/styles/mixins.scss' as mixins;
+@use '../../utils/styles/variables.scss' as vars;
+
+#phoneNumberForm {
+  width: 30%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  border: 1px solid black;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 1em;
+  gap: 3em;
+}
+
+#phoneNumberForm h2 {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+#phoneNumberForm .inputWrapper {
+  display: flex;
+  flex-flow: column;
+  gap: .3em;
+  text-align: center;
+}
+
+#phoneNumberForm .inputWrapper input {
+  padding: 0.5em;
+  border-radius: 0.4em;
+  border: 1px solid vars.$colorSecondary;
+}
+
+#phoneNumberForm button {
+  @include mixins.button();
+}
+

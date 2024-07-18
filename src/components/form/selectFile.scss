@@ -10,7 +10,7 @@
   background: #FFFFFF;
   border-radius: 8px;
   padding: 1em;
-  gap: 3em;
+  gap: 2em;
 }
 
 #phoneNumberForm h2 {
@@ -23,6 +23,22 @@
   flex-flow: column;
   gap: .3em;
   text-align: center;
+}
+
+#phoneNumberForm .selectCampaign {
+  margin-bottom: 2em;
+  position: relative;
+}
+
+#phoneNumberForm .selectCampaign::after {
+  content: '';
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25%;
+  height: 2px;
+  background: vars.$colorSecondary;
 }
 
 #phoneNumberForm .inputWrapper input {

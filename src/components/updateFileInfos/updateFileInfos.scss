@@ -4,8 +4,11 @@
   padding: 0.5em;
   border-radius: 0 0 0 8px;
   width: 100%;
+  min-height: 15dvh;
+  max-height: 15dvh;
   display: flex;
   flex-flow: column;
+  justify-content: center;
   align-self: flex-end;
   gap: 0.4em;
   background: vars.$detailsFicheBackground;

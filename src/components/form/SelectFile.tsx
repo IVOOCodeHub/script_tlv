@@ -1,5 +1,5 @@
 // styles
-import './phoneNumberForm.scss'
+import './selectFile.scss'
 
 // types
 import { ReactElement, ChangeEvent, FormEvent, MouseEvent } from 'react'
@@ -21,7 +21,7 @@ import {
 //hooks
 import { useState } from 'react'
 
-export default function PhoneNumberForm(): ReactElement {
+export default function SelectFile(): ReactElement {
   const [campaign, setCampaign] = useState<string>('APACVO')
   const [ID, setID] = useState<string>('')
   const [phone, setPhone] = useState<string>('')
@@ -59,8 +59,8 @@ export default function PhoneNumberForm(): ReactElement {
 
   return (
     <form id={'phoneNumberForm'} onSubmit={handleSubmit}>
-      <h2>Ouvrir une fiche</h2>
-      <div className={'inputWrapper'}>
+      <h2>Monter une fiche</h2>
+      <div className={'inputWrapper selectCampaign'}>
         <label htmlFor={'campaign'}>Campagne de la fiche</label>
         <select
           name={'campaign'}

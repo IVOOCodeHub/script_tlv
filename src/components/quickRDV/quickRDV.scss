@@ -2,17 +2,19 @@
 @use '../../utils/styles/variables' as vars;
 
 #quickRDV {
+  min-height: 10dvh;
+  max-height: 10dvh;
   padding: 0.5em;
   background: vars.$detailsFicheBackground;
   border-radius: 8px 0 0 0;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  gap: 1em;
+  gap: .5em;
 }
 
 #quickRDV button {
-  font-size: 1em !important;
+  font-size: .8em !important;
   @include mixins.button();
 }
 
@@ -30,7 +32,7 @@
 }
 
 #quickRDV .topContainer .buttonWrapper input {
-  font-size: 1.3em;
+  font-size: 1em;
   padding: 0.3em;
 }
 

@@ -2,12 +2,6 @@
 @use '../../utils/styles/variables' as vars;
 
 // GENERAL STYLES
-
-#landingPage {
-  max-height: 100dvh;
-  min-height: 100dvh;
-}
-
 .alreadyCalledBackground {
   background: vars.$alreadyCalledBackground;
 }
@@ -108,6 +102,8 @@
   background: #fffff4;
   display: flex;
   width: 100%;
+  min-height: 60dvh;
+  max-height: 60dvh;
 }
 
 #landingMain .leftContainer,

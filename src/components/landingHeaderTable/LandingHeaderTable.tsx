@@ -4,7 +4,17 @@ import './landingHeaderTable.scss'
 // types
 import { ReactElement } from 'react'
 
+// hooks
+import { useContext } from 'react'
+
+// context
+import { FileContext } from '../../context/fileContext/FileContext'
+
 export default function LandingHeaderTable(): ReactElement {
+  const { file } = useContext(FileContext)
+
+  console.log(file)
+
   return (
     <div id={'landingHeaderTable'}>
       <table>
@@ -18,13 +28,15 @@ export default function LandingHeaderTable(): ReactElement {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>5</td>
-            <td>Monsieur DUDUL</td>
-            <td>Mairies</td>
-            <td>Nord</td>
-            <td>05/05/2015</td>
-          </tr>
+          {file && (
+            <tr>
+              <td>{file.code}</td>
+              <td>{file.civiliteres}{' '}{file.nomres}</td>
+              <td>{file.activite}</td>
+              <td>Nord</td>
+              <td>05/05/2015</td>
+            </tr>
+          )}
         </tbody>
       </table>
       <div className={'bottomContainer'}>

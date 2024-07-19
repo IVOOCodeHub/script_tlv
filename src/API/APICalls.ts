@@ -16,7 +16,7 @@ export class APICalls implements IAPICalls {
   constructor() {
     this.baseUrl = isOnProduction
       ? 'http://192.168.0.112:8800/api/storedProcedure'
-      : '' // TODO : define a mockup API url here
+      : 'http://192.168.0.112/Public/script_tlv_v14'
   }
 
   async getRequest<T>(endpoint: string): Promise<T> {
@@ -39,7 +39,7 @@ export class APICalls implements IAPICalls {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
-      credentials: 'include',
+      // credentials: 'include',
     })
     if (!response.ok) {
       const error: Error = new Error('Network response was not ok')

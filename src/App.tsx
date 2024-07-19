@@ -20,7 +20,7 @@ function App(): ReactElement {
   return (
     <Router>
       <Routes>
-        <Route path={'/'} element={<Navigate to={'/landing'} />} />
+        <Route path={'/'} element={<Navigate to={'/auth'} />} />
         <Route path={'/auth'} element={<AuthForm />} />
         <Route path={'/landing'} element={<LandingPage />} />
       </Routes>

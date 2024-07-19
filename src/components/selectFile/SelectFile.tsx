@@ -3,6 +3,7 @@ import './selectFile.scss'
 
 // types
 import { ReactElement, ChangeEvent, FormEvent, MouseEvent } from 'react'
+import { NavigateFunction } from 'react-router-dom'
 interface ISearchFiche {
   campaign: string
   ID?: string
@@ -19,12 +20,19 @@ import {
 } from '../../utils/scripts/Utils'
 
 //hooks
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+// context
+import { FileContext } from '../../context/fileContext/FileContext'
 
 export default function SelectFile(): ReactElement {
-  const [campaign, setCampaign] = useState<string>('APACVO')
+  const [campaign, setCampaign] = useState<string>('apacvop')
   const [ID, setID] = useState<string>('')
   const [phone, setPhone] = useState<string>('')
+  const navigate: NavigateFunction = useNavigate()
+
+  const { file, getFile } = useContext(FileContext)
 
   const handleChangeCampaign = (
     select: ChangeEvent<HTMLSelectElement>,
@@ -43,9 +51,9 @@ export default function SelectFile(): ReactElement {
     setID(ID)
   }
 
-  const handleSubmit = (
+  const handleSubmit = async (
     event: MouseEvent<HTMLButtonElement> | FormEvent<HTMLFormElement>,
-  ): void => {
+  ): Promise<void> => {
     event.preventDefault()
 
     const findFile: ISearchFiche = {
@@ -54,7 +62,13 @@ export default function SelectFile(): ReactElement {
       phone: removeDotsFromNumber(phone),
     }
 
-    console.log(findFile)
+    const userCredentials = {
+      code: '6176',
+      password: '9884',
+    }
+    await getFile(userCredentials, findFile)
+
+    navigate('/landing')
   }
 
   return (
@@ -68,14 +82,15 @@ export default function SelectFile(): ReactElement {
             handleChangeCampaign(select)
           }
         >
-          <option value={'APACVO'}>APACVO</option>
-          <option value={'CERAM'}>CERAM</option>
-          <option value={'CHATAI'}>CHATAI</option>
-          <option value={'CURIAZ'}>CURIAZ</option>
-          <option value={'GOLFE'}>GOLFE</option>
-          <option value={'MONTGU'}>MONTGU</option>
-          <option value={'REVERZ'}>REVERZ</option>
-          <option value={'VIMEU'}>VIMEU</option>
+          {/* value is the name of the database in SQL1 & SQL2 */}
+          <option value={'apacvop'}>APACVO</option>
+          <option value={'GOLFE2P'}>CERAM</option>
+          <option value={'Montgup'}>CHATAI</option>
+          <option value={'ceram0p'}>CURIAZ</option>
+          <option value={'curiazp'}>GOLFE</option>
+          <option value={'chataip'}>MONTGU</option>
+          <option value={'vimeu0p'}>REVERZ</option>
+          <option value={'reverzp'}>VIMEU</option>
         </select>
       </div>
       <div className={'inputWrapper'}>

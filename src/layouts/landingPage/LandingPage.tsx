@@ -3,9 +3,14 @@ import './landingPage.scss'
 
 // types
 import { ReactElement } from 'react'
+import { NavigateFunction } from 'react-router-dom'
 
 // hooks
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+// context
+import { FileContext } from '../../context/fileContext/FileContext.tsx'
 
 // components
 import Clock from '../../components/clock/Clock'
@@ -21,6 +26,15 @@ export default function LandingPage(): ReactElement {
   // todo : remplace mockup with real data
   const [ficheType, setFicheType] = useState<string>('')
   const [selectedDate, setSelectedDate] = useState<string>('')
+
+  const { file } = useContext(FileContext)
+  const navigate: NavigateFunction = useNavigate()
+
+  useEffect((): void => {
+    if (!file || !file.code) {
+      navigate('/auth')
+    }
+  }, [])
 
   useEffect(() => {
     setFicheType('client')

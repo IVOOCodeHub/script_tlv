@@ -32,7 +32,7 @@ export default function SelectFile(): ReactElement {
   const [phone, setPhone] = useState<string>('')
   const navigate: NavigateFunction = useNavigate()
 
-  const { file, getFile } = useContext(FileContext)
+  const { getFile } = useContext(FileContext)
 
   const handleChangeCampaign = (
     select: ChangeEvent<HTMLSelectElement>,
@@ -63,7 +63,7 @@ export default function SelectFile(): ReactElement {
     }
 
     const userCredentials = {
-      code: '6176',
+      matricule: '6176',
       password: '9884',
     }
     await getFile(userCredentials, findFile)

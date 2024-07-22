@@ -1,4 +1,7 @@
-import { APICalls } from '../APICalls.ts'
+// types
+import { IFile } from '../interfaces/File.interface.ts'
+
+import { APICalls, APIResponse } from '../APICalls.ts'
 const apiCalls: APICalls = new APICalls()
 
 export class FileService {
@@ -9,19 +12,19 @@ export class FileService {
   }
 
   async getFile(
-    userCredentials: { code: string; password: string },
+    userCredentials: { matricule: string; password: string },
     findFile: { campaign: string; ID?: string; phone?: string },
-  ) {
+  ): Promise<IFile | null> {
     const params = {
       ...userCredentials,
       request: null,
       args: {
-        findFile: { campaign: findFile.campaign, ID: findFile.ID },
+        findFile: { campaign: findFile.campaign, ID: findFile.ID, phone: findFile.phone },
       },
     }
 
     try {
-      const response = await apiCalls.postRequest(this.getEndpoint, params)
+      const response: APIResponse<IFile> = await apiCalls.postRequest(this.getEndpoint, params)
       return response['data']
     } catch (error) {
       console.error(error)

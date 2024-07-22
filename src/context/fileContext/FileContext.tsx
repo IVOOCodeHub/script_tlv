@@ -1,5 +1,5 @@
 // hooks
-import { createContext, useState} from 'react'
+import { createContext, useState } from 'react'
 
 // services
 import { FileService } from '../../API/services/File.service.ts'
@@ -31,8 +31,8 @@ export const FileContext: Context<IFileContext> = createContext<IFileContext>({
 
 // initProvider
 export const FileProvider = ({
-                               children,
-                             }: {
+  children,
+}: {
   children: ReactElement
 }): ReactElement => {
   const [file, setFile] = useState<IFile | null>(null)
@@ -51,7 +51,7 @@ export const FileProvider = ({
         findFile,
       )
       setFile(res)
-      console.log('res –>',res)
+      console.log('res –>', res)
       return res
     } catch (error) {
       console.error('Failed to get file', error)

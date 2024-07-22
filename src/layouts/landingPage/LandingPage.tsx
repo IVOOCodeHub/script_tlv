@@ -23,8 +23,7 @@ import StatusButtons from '../../components/statusButtons/StatusButtons'
 import CallPenetration from '../../components/callPenetration/CallPenetration'
 
 export default function LandingPage(): ReactElement {
-  // todo : remplace mockup with real data
-  const [ficheType, setFicheType] = useState<string>('')
+  const [ficheType, setFicheType] = useState<string | undefined>('')
   const [selectedDate, setSelectedDate] = useState<string>('')
 
   const { file } = useContext(FileContext)
@@ -37,7 +36,7 @@ export default function LandingPage(): ReactElement {
   }, [])
 
   useEffect(() => {
-    setFicheType('client')
+    setFicheType(file?.qualite)
   }, [])
 
   const defineBackground = (): string => {
@@ -48,8 +47,10 @@ export default function LandingPage(): ReactElement {
         return 'neverCalledBackground'
       case 'recycled':
         return 'recycledBackground'
-      default:
+      case 'CLI' :
         return 'clientBackground'
+      default:
+        return 'neverCalledBackground'
     }
   }
 

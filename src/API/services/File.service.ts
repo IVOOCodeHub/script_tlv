@@ -8,7 +8,7 @@ export class FileService {
   getEndpoint: string
 
   constructor() {
-    this.getEndpoint = '/getFile.php'
+    this.getEndpoint = '/getFiles.php'
   }
 
   async getFile(

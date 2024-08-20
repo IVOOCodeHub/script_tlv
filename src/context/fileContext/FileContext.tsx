@@ -51,7 +51,6 @@ export const FileProvider = ({
         findFile,
       )
       setFile(res)
-      console.log('res –>', res)
       return res
     } catch (error) {
       console.error('Failed to get file', error)

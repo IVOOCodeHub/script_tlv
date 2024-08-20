@@ -19,24 +19,25 @@ export default function UpdateFileInfos(): ReactElement {
         <form id={'UpdateFileInfos'}>
           <div className={'inputContainer'}>
             <label>Contact</label>
-            <select defaultValue={file.civiliteres}>
+            <select defaultValue={file.civilitecon}>
               <option value={'Madame'}>Madame</option>
               <option value={'Mademoiselle'}>Mademoiselle</option>
               <option value={'Monsieur'}>Monsieur</option>
             </select>
             <input
               type={'text'}
-              defaultValue={file.nomres}
+              defaultValue={file.nomcon}
               placeholder={'Veuillez renseigner nom du contact ici'}
             />
           </div>
           <div className={'inputContainer'}>
             <label>Commentaires :</label>
             <textarea
+              defaultValue={file.infoto}
               placeholder={
                 'Veuillez renseigner les commentaires éventuels ici.'
               }
-            >{file.infoto}</textarea>
+            ></textarea>
           </div>
           <div className={'inputContainer'}>
             <label>Commande à établir ?</label>

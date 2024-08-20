@@ -4,9 +4,12 @@ import App from './App.tsx'
 
 // context
 import { FileProvider } from './context/fileContext/FileContext'
+import { DocumentProvider } from './context/documentContext/DocumentContext'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <FileProvider>
-    <App />
+    <DocumentProvider>
+      <App />
+    </DocumentProvider>
   </FileProvider>,
 )

@@ -1,0 +1,20 @@
+// MAIN CONTENT
+#landingMain {
+  background: #fffff4;
+  display: flex;
+  width: 100%;
+  min-height: 60dvh;
+  max-height: 60dvh;
+}
+
+#landingMain .leftContainer,
+#landingMain .rightContainer {
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+}
+
+#landingMain .leftContainer {
+  align-items: center;
+  justify-content: center;
+}

@@ -13,18 +13,17 @@ import { useNavigate } from 'react-router-dom'
 import { FileContext } from '../../context/fileContext/FileContext.tsx'
 
 // components
+import LandingPageMain from '../../components/landingPageMain/LandingPageMain'
 import Clock from '../../components/clock/Clock'
 import Button from '../../components/button/Button'
 import LandingHeaderTable from '../../components/landingHeaderTable/LandingHeaderTable'
-import UpdateFileInfos from '../../components/updateFileInfos/UpdateFileInfos'
-import Calendar from '../../components/calendar/CalendarComponent.tsx'
-import QuickRDV from '../../components/quickRDV/QuickRDV.tsx'
-import StatusButtons from '../../components/statusButtons/StatusButtons'
 import CallPenetration from '../../components/callPenetration/CallPenetration'
+import WhoIsIt from '../../components/whoIsIt/WhoIsIt.tsx'
 
 export default function LandingPage(): ReactElement {
   const [ficheType, setFicheType] = useState<string | undefined>('')
   const [selectedDate, setSelectedDate] = useState<string>('')
+  const [isWhoIsItOpen, setIsWhoIsItOpen] = useState<boolean>(false)
 
   const { file } = useContext(FileContext)
   const navigate: NavigateFunction = useNavigate()
@@ -47,11 +46,15 @@ export default function LandingPage(): ReactElement {
         return 'neverCalledBackground'
       case 'recycled':
         return 'recycledBackground'
-      case 'CLI' :
+      case 'CLI':
         return 'clientBackground'
       default:
         return 'neverCalledBackground'
     }
+  }
+
+  const toggleWhoIsIt = (): void => {
+    setIsWhoIsItOpen(!isWhoIsItOpen)
   }
 
   return (
@@ -63,7 +66,9 @@ export default function LandingPage(): ReactElement {
             <Button
               props={{
                 textContent: 'Qui est-ce ?',
-                onClick: () => {},
+                onClick: () => {
+                  toggleWhoIsIt()
+                },
               }}
             />
             <Button
@@ -79,7 +84,6 @@ export default function LandingPage(): ReactElement {
           <h1>EA ACVO</h1>
           <LandingHeaderTable />
         </div>
-
         <div className={'rightContainer'}>
           <div className={'buttonWrapper'}>
             <Button
@@ -98,16 +102,14 @@ export default function LandingPage(): ReactElement {
         </div>
       </section>
 
-      <section id={'landingMain'}>
-        <div className={'leftContainer'}>
-          <StatusButtons />
-        </div>
-        <div className={'rightContainer'}>
-          <UpdateFileInfos />
-          <Calendar onDateSelect={setSelectedDate} />
-          <QuickRDV selectedDate={selectedDate} />
-        </div>
-      </section>
+      {isWhoIsItOpen ? (
+        <WhoIsIt toggleWhoIsIt={toggleWhoIsIt} />
+      ) : (
+        <LandingPageMain
+          setSelectedDate={setSelectedDate}
+          selectedDate={selectedDate}
+        />
+      )}
 
       <section id={'landingFooter'} className={defineBackground()}>
         <div className={'leftContainer'}>

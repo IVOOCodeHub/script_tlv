@@ -1,0 +1,62 @@
+@use '../../utils/styles/mixins' as mixins;
+@use '../../utils/styles/variables' as vars;
+
+#whoIsIt {
+  min-height: 60dvh;
+  max-height: 60dvh;
+  background: #fffff4;
+  display: flex;
+  flex-flow: column;
+  gap: .5em;
+  padding: .5em;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#whoIsIt h2 {
+  text-align: center;
+}
+
+#whoIsIt .whoIsItContainer {
+  width: 75%;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35%;
+}
+
+#whoIsIt .whoIsItContainer article {
+}
+
+#whoIsIt .whoIsItContainer ul {
+  width: 120%;
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+  background: #ffffff;
+  border: 1px solid vars.$colorSecondary;
+  border-radius: 8px;
+  padding: .5em;
+}
+
+#whoIsIt .whoIsItContainer ul li {
+}
+
+#whoIsIt .whoIsItContainer ul li p {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+#whoIsIt .whoIsItContainer ul li p span {
+  font-weight: 400;
+}
+
+
+#whoIsIt button {
+  font-size: .8em !important;
+  @include mixins.button();
+}

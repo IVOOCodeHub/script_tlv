@@ -20,12 +20,16 @@ import LandingHeaderTable from '../../components/landingHeaderTable/LandingHeade
 import CallPenetration from '../../components/callPenetration/CallPenetration'
 import WhoIsIt from '../../components/whoIsIt/WhoIsIt'
 import WhoAreWe from '../../components/whoAreWe/WhoAreWe'
+import HistoCalls from '../../components/histoCalls/HistoCalls'
+import HistoOffer from '../../components/histoOffer/HistoOffer'
 
 export default function LandingPage(): ReactElement {
   const [ficheType, setFicheType] = useState<string | undefined>('')
   const [selectedDate, setSelectedDate] = useState<string>('')
   const [isWhoIsItOpen, setIsWhoIsItOpen] = useState<boolean>(false)
   const [isWhoAreWeOpen, setIsWhoAreWeOpen] = useState<boolean>(false)
+  const [isHistoCallsOpen, setIsHistoCallsOpen] = useState<boolean>(false)
+  const [isHistoOfferOpen, setIsHistoOfferOpen] = useState<boolean>(false)
 
   const { file } = useContext(FileContext)
   const navigate: NavigateFunction = useNavigate()
@@ -58,11 +62,29 @@ export default function LandingPage(): ReactElement {
   const toggleWhoIsIt = (): void => {
     setIsWhoIsItOpen(!isWhoIsItOpen)
     setIsWhoAreWeOpen(false)
+    setIsHistoCallsOpen(false)
+    setIsHistoOfferOpen(false)
   }
 
   const toggleWhoAreWe = (): void => {
     setIsWhoAreWeOpen(!isWhoAreWeOpen)
     setIsWhoIsItOpen(false)
+    setIsHistoCallsOpen(false)
+    setIsHistoOfferOpen(false)
+  }
+
+  const toggleHistoCalls = ():void => {
+    setIsHistoCallsOpen(!isHistoCallsOpen)
+    setIsWhoIsItOpen(false)
+    setIsWhoAreWeOpen(false)
+    setIsHistoOfferOpen(false)
+  }
+
+  const toggleHistoOffer = ():void => {
+    setIsHistoOfferOpen(!isHistoOfferOpen)
+    setIsHistoCallsOpen(false)
+    setIsWhoIsItOpen(false)
+    setIsWhoAreWeOpen(false)
   }
 
   return (
@@ -99,13 +121,13 @@ export default function LandingPage(): ReactElement {
             <Button
               props={{
                 textContent: 'Historique appels',
-                onClick: () => {},
+                onClick: () => {toggleHistoCalls()},
               }}
             />
             <Button
               props={{
                 textContent: 'Historique offres',
-                onClick: () => {},
+                onClick: () => {toggleHistoOffer()},
               }}
             />
           </div>
@@ -114,7 +136,7 @@ export default function LandingPage(): ReactElement {
 
       {/* ================ MAIN CONTENT ================ */}
 
-      {!isWhoIsItOpen && !isWhoAreWeOpen && (
+      {!isWhoIsItOpen && !isWhoAreWeOpen &&  !isHistoCallsOpen && !isHistoOfferOpen && (
         <LandingPageMain
           setSelectedDate={setSelectedDate}
           selectedDate={selectedDate}
@@ -124,6 +146,10 @@ export default function LandingPage(): ReactElement {
       {isWhoIsItOpen && <WhoIsIt toggleWhoIsIt={toggleWhoIsIt} />}
 
       {isWhoAreWeOpen && <WhoAreWe toggleWhoAreWe={toggleWhoAreWe} />}
+
+      {isHistoCallsOpen && <HistoCalls toggleHistoCalls={toggleHistoCalls} />}
+
+      {isHistoOfferOpen && <HistoOffer toggleHistoOffer={toggleHistoOffer} />}
 
       {/* ================ END OF MAIN CONTENT ================ */}
 

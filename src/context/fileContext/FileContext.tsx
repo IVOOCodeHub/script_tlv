@@ -1,6 +1,9 @@
 // hooks
 import { createContext, useState } from 'react'
 
+// utils
+import {formatCampaignNameForFrontEnd} from '../../utils/scripts/Utils.ts'
+
 // services
 import { FileService } from '../../API/services/File.service.ts'
 const fileService: FileService = new FileService()
@@ -55,11 +58,8 @@ export const FileProvider = ({
       )
       setFile(res)
 
-      // every campaign name have a p at the end in dataBase. We remote it
-      // to have the same name as the campaign name in the app.
-      const convertCampaignName: string =findFile.campaign.slice(0, -1)
-      setCampaign(convertCampaignName)
-      console.log('campaign ->', convertCampaignName)
+      setCampaign(formatCampaignNameForFrontEnd(findFile.campaign))
+      console.log('campaign ->', formatCampaignNameForFrontEnd(findFile.campaign))
       console.log('fiche ->', res)
       return res
     } catch (error) {

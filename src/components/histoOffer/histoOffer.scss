@@ -1,18 +1,11 @@
 @use '../../utils/styles/mixins' as mixins;
 @use '../../utils/styles/variables' as vars;
 
-#whoAreWe {
+#histoOffer {
   @include mixins.landingSections;
 }
 
-#whoAreWe blockquote {
-  width: 75%;
-  text-align: center;
-  line-height: 1.8em;
-  font-size: 1.2em;
-}
-
-#whoAreWe button {
+#histoOffer button {
   font-size: .8em !important;
   @include mixins.button;
 }

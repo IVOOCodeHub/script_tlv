@@ -2,15 +2,7 @@
 @use '../../utils/styles/variables' as vars;
 
 #whoIsIt {
-  min-height: 60dvh;
-  max-height: 60dvh;
-  background: #fffff4;
-  display: flex;
-  flex-flow: column;
-  gap: .5em;
-  padding: .5em;
-  justify-content: space-around;
-  align-items: center;
+  @include mixins.landingSections;
 }
 
 #whoIsIt h2 {

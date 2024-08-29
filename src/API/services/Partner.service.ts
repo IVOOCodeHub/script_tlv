@@ -1,6 +1,7 @@
 // types
 import { IPartner } from '../interfaces/Partner.interface.ts'
 
+// API
 import { APICalls, APIResponse } from '../APICalls.ts'
 const apiCalls: APICalls = new APICalls()
 

@@ -26,3 +26,13 @@ export const formatDateForDisplayWithTime = (date: string): string => {
   const minutes: string = String(dateObj.getMinutes()).padStart(2, '0')
   return `${day}/${month}/${year} ${hours}:${minutes}`
 }
+
+export const formatCampaignNameForFrontEnd = (campaign: string): string => {
+  // every campaign name have a p at the end in dataBase. We remove it for display in frontEnd
+  return campaign.slice(0, -1)
+}
+
+export const formatCampaignNameForBackEnd = (campaign: string): string => {
+  // every campaign name have a p at the end in dataBase. We add it for search in backEnd
+  return campaign + 'p'
+}

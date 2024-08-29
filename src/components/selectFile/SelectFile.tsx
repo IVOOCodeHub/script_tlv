@@ -13,25 +13,22 @@ interface ISearchFiche {
 // components
 import Button from '../button/Button'
 
-// utils
-import {
-  formatPhoneNumber,
-  removeDotsFromNumber,
-} from '../../utils/scripts/Utils'
-
 //hooks
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 // context
+import { TOContext } from '../../context/TOContext/TOContext.tsx'
 import { FileContext } from '../../context/fileContext/FileContext'
 
 export default function SelectFile(): ReactElement {
   const [campaign, setCampaign] = useState<string>('apacvop')
+  const [matricule, setMatricule] = useState<string>('')
   const [ID, setID] = useState<string>('')
-  const [phone, setPhone] = useState<string>('')
+
   const navigate: NavigateFunction = useNavigate()
 
+  const { getTO } = useContext(TOContext)
   const { getFile } = useContext(FileContext)
 
   const handleChangeCampaign = (
@@ -41,9 +38,11 @@ export default function SelectFile(): ReactElement {
     setCampaign(selectedCampaign)
   }
 
-  const handleChangePhone = (input: ChangeEvent<HTMLInputElement>): void => {
-    const phoneNumber: string = formatPhoneNumber(input.target.value)
-    setPhone(phoneNumber)
+  const handleChangeMatricule = (
+    input: ChangeEvent<HTMLInputElement>,
+  ): void => {
+    const matricule: string = input.target.value
+    setMatricule(matricule)
   }
 
   const handleChangeID = (input: ChangeEvent<HTMLInputElement>): void => {
@@ -59,13 +58,14 @@ export default function SelectFile(): ReactElement {
     const findFile: ISearchFiche = {
       campaign: campaign,
       ID: ID,
-      phone: removeDotsFromNumber(phone),
     }
 
     const userCredentials = {
-      matricule: '6176',
-      password: '9884',
+      matricule: matricule,
+      password: '0000',
     }
+
+    await getTO(userCredentials)
     await getFile(userCredentials, findFile)
 
     navigate('/landing')
@@ -74,6 +74,7 @@ export default function SelectFile(): ReactElement {
   return (
     <form id={'phoneNumberForm'} onSubmit={handleSubmit}>
       <h2>Monter une fiche</h2>
+
       <div className={'inputWrapper selectCampaign'}>
         <label htmlFor={'campaign'}>Campagne de la fiche</label>
         <select
@@ -94,6 +95,17 @@ export default function SelectFile(): ReactElement {
         </select>
       </div>
       <div className={'inputWrapper'}>
+        <label htmlFor={'matricule'}>Code TO</label>
+        <input
+          type={'text'}
+          placeholder={'Matricule'}
+          name={'matricule'}
+          onChange={(input: ChangeEvent<HTMLInputElement>) =>
+            handleChangeMatricule(input)
+          }
+        />
+      </div>
+      <div className={'inputWrapper'}>
         <label htmlFor={'id'}>Clé de la fiche</label>
         <input
           type={'text'}
@@ -101,19 +113,6 @@ export default function SelectFile(): ReactElement {
           name={'id'}
           onChange={(input: ChangeEvent<HTMLInputElement>) =>
             handleChangeID(input)
-          }
-        />
-      </div>
-      <p>Où</p>
-      <div className={'inputWrapper'}>
-        <label htmlFor={'phone'}>Téléphone de la fiche</label>
-        <input
-          type={'tel'}
-          placeholder={'Numéro de téléphone'}
-          name={'phone'}
-          value={phone}
-          onChange={(input: ChangeEvent<HTMLInputElement>) =>
-            handleChangePhone(input)
           }
         />
       </div>

@@ -1,4 +1,5 @@
 export interface IDocuments {
+  length: number
   forEach(arg0: (doc: IDocument) => void): unknown
   documents: IDocument[]
 }

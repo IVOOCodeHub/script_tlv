@@ -18,12 +18,14 @@ import Clock from '../../components/clock/Clock'
 import Button from '../../components/button/Button'
 import LandingHeaderTable from '../../components/landingHeaderTable/LandingHeaderTable'
 import CallPenetration from '../../components/callPenetration/CallPenetration'
-import WhoIsIt from '../../components/whoIsIt/WhoIsIt.tsx'
+import WhoIsIt from '../../components/whoIsIt/WhoIsIt'
+import WhoAreWe from '../../components/whoAreWe/WhoAreWe'
 
 export default function LandingPage(): ReactElement {
   const [ficheType, setFicheType] = useState<string | undefined>('')
   const [selectedDate, setSelectedDate] = useState<string>('')
   const [isWhoIsItOpen, setIsWhoIsItOpen] = useState<boolean>(false)
+  const [isWhoAreWeOpen, setIsWhoAreWeOpen] = useState<boolean>(false)
 
   const { file } = useContext(FileContext)
   const navigate: NavigateFunction = useNavigate()
@@ -55,6 +57,12 @@ export default function LandingPage(): ReactElement {
 
   const toggleWhoIsIt = (): void => {
     setIsWhoIsItOpen(!isWhoIsItOpen)
+    setIsWhoAreWeOpen(false)
+  }
+
+  const toggleWhoAreWe = (): void => {
+    setIsWhoAreWeOpen(!isWhoAreWeOpen)
+    setIsWhoIsItOpen(false)
   }
 
   return (
@@ -74,7 +82,9 @@ export default function LandingPage(): ReactElement {
             <Button
               props={{
                 textContent: 'Qui sommes-nous ?',
-                onClick: () => {},
+                onClick: () => {
+                  toggleWhoAreWe()
+                },
               }}
             />
           </div>
@@ -102,14 +112,20 @@ export default function LandingPage(): ReactElement {
         </div>
       </section>
 
-      {isWhoIsItOpen ? (
-        <WhoIsIt toggleWhoIsIt={toggleWhoIsIt} />
-      ) : (
+      {/* ================ MAIN CONTENT ================ */}
+
+      {!isWhoIsItOpen && !isWhoAreWeOpen && (
         <LandingPageMain
           setSelectedDate={setSelectedDate}
           selectedDate={selectedDate}
         />
       )}
+
+      {isWhoIsItOpen && <WhoIsIt toggleWhoIsIt={toggleWhoIsIt} />}
+
+      {isWhoAreWeOpen && <WhoAreWe toggleWhoAreWe={toggleWhoAreWe} />}
+
+      {/* ================ END OF MAIN CONTENT ================ */}
 
       <section id={'landingFooter'} className={defineBackground()}>
         <div className={'leftContainer'}>

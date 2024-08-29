@@ -20,6 +20,7 @@ export interface IFileContext {
       phone?: string | undefined
     },
   ) => Promise<IFile | null>
+  campaign: string | null
 }
 
 // initContext
@@ -27,6 +28,7 @@ export const FileContext: Context<IFileContext> = createContext<IFileContext>({
   file: null,
   setFile: (): void => {},
   getFile: async (): Promise<IFile | null> => null,
+  campaign: null,
 })
 
 // initProvider
@@ -36,6 +38,7 @@ export const FileProvider = ({
   children: ReactElement
 }): ReactElement => {
   const [file, setFile] = useState<IFile | null>(null)
+  const [campaign, setCampaign] = useState<string | null>(null)
 
   const getFile = async (
     userCredentials: { matricule: string; password: string },
@@ -51,6 +54,13 @@ export const FileProvider = ({
         findFile,
       )
       setFile(res)
+
+      // every campaign name have a p at the end in dataBase. We remote it
+      // to have the same name as the campaign name in the app.
+      const convertCampaignName: string =findFile.campaign.slice(0, -1)
+      setCampaign(convertCampaignName)
+      console.log('campaign ->', convertCampaignName)
+      console.log('fiche ->', res)
       return res
     } catch (error) {
       console.error('Failed to get file', error)
@@ -59,7 +69,7 @@ export const FileProvider = ({
   }
 
   return (
-    <FileContext.Provider value={{ file, setFile, getFile }}>
+    <FileContext.Provider value={{ file, setFile, getFile, campaign }}>
       {children}
     </FileContext.Provider>
   )

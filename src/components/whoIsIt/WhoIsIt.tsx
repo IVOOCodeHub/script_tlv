@@ -44,7 +44,6 @@ export default function WhoIsIt({
     await getDocuments(userCredentials, findDocuments)
   }
 
-
   return (
     <section id={'whoIsIt'}>
       <h2>Qui est-ce ?</h2>
@@ -126,12 +125,14 @@ export default function WhoIsIt({
                 </li>
                 <li>
                   <p>
-                    Nombre d'appels : <span className={'data'}>{}</span>
+                    Nombre d'appels :{' '}
+                    <span className={'data'}>{parseInt(file.nappels)}</span>
                   </p>
                 </li>
                 <li>
                   <p>
-                    Nombre d'offres : <span className={'data'}>{}</span>
+                    Nombre d'offres :{' '}
+                    <span className={'data'}>{documents?.length}</span>
                   </p>
                 </li>
               </ul>

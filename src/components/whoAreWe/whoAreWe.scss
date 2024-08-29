@@ -1,0 +1,26 @@
+@use '../../utils/styles/mixins' as mixins;
+@use '../../utils/styles/variables' as vars;
+
+#whoAreWe {
+  min-height: 60dvh;
+  max-height: 60dvh;
+  background: #fffff4;
+  display: flex;
+  flex-flow: column;
+  gap: .5em;
+  padding: .5em;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#whoAreWe blockquote {
+  width: 75%;
+  text-align: center;
+  line-height: 1.8em;
+  font-size: 1.2em;
+}
+
+#whoAreWe button {
+  font-size: .8em !important;
+  @include mixins.button;
+}

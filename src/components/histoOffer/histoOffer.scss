@@ -5,6 +5,10 @@
   @include mixins.landingSections;
 }
 
+#histoOffer .tableContainer {
+  @include mixins.tableContainer;
+}
+
 #histoOffer button {
   font-size: .8em !important;
   @include mixins.button;

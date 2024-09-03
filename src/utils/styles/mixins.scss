@@ -4,8 +4,8 @@
   background: #fffff4;
   display: flex;
   flex-flow: column;
-  gap: .5em;
-  padding: .5em;
+  gap: 0.5em;
+  padding: 0.5em;
   justify-content: space-around;
   align-items: center;
 }
@@ -137,8 +137,8 @@
   background: linear-gradient(180deg, #fd0b41 0%, #ff0000 100%);
   background-origin: border-box;
   box-shadow:
-          0 0.5px 1.5px rgb(255, 0, 0),
-          inset 0 0.8px 0 -0.25px rgba(255, 255, 255, 0.2);
+    0 0.5px 1.5px rgb(255, 0, 0),
+    inset 0 0.8px 0 -0.25px rgba(255, 255, 255, 0.2);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -149,9 +149,57 @@
 
   &:focus {
     box-shadow:
-            inset 0 0.8px 0 -0.25px rgba(255, 255, 255, 0.2),
-            0 0.5px 1.5px rgb(255, 0, 0),
-            0 0 0 3.5px rgb(253, 11, 65);
+      inset 0 0.8px 0 -0.25px rgba(255, 255, 255, 0.2),
+      0 0.5px 1.5px rgb(255, 0, 0),
+      0 0 0 3.5px rgb(253, 11, 65);
     outline: 0;
+  }
+}
+
+@mixin tableContainer {
+  width: 100%;
+  max-height: 50dvh;
+  overflow-y: scroll;
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0 2px 4px,
+    rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+
+  & table {
+    width: 100%;
+    overflow-y: auto;
+    border-collapse: collapse;
+    background: #f1f1f1;
+
+    & th {
+      background: #36395a;
+      color: #ffffff;
+      font-size: 1.2dvw;
+      position: sticky;
+      top: 0;
+    }
+
+    & th,
+    & td {
+      padding: 0.5em;
+      text-align: center;
+    }
+
+    & td:hover {
+      cursor: pointer !important;
+    }
+
+    & tr:hover {
+      background: #36395a;
+    }
+
+    & tr:hover td,
+    & tr:hover th {
+      color: #ffffff;
+    }
+
+    & tr th:last-child {
+      //width: 40%;
+    }
   }
 }

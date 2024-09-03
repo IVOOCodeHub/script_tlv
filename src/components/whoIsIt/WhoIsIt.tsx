@@ -22,7 +22,7 @@ export default function WhoIsIt({
   toggleWhoIsIt: () => void
 }): ReactElement {
   const { file } = useContext(FileContext)
-  const { documents, getDocuments, calculateCAHT } = useContext(DocumentContext)
+  const { documents, getDocuments } = useContext(DocumentContext)
 
   useEffect((): void => {
     if (file!.code && !documents) {
@@ -120,7 +120,7 @@ export default function WhoIsIt({
                 </li>
                 <li>
                   <p>
-                    CA HT : <span className={'data'}>{calculateCAHT()}€</span>
+                    CA HT : <span className={'data'}>{file.CAtotal}€</span>
                   </p>
                 </li>
                 <li>
@@ -132,7 +132,7 @@ export default function WhoIsIt({
                 <li>
                   <p>
                     Nombre d'offres :{' '}
-                    <span className={'data'}>{documents?.length}</span>
+                    <span className={'data'}>{file.NbreCDE}</span>
                   </p>
                 </li>
               </ul>

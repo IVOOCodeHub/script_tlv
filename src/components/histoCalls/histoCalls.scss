@@ -6,50 +6,10 @@
 }
 
 #histoCalls .tableContainer {
-  max-height: 50dvh;
-  overflow-y: scroll;
-  box-shadow:
-    rgba(0, 0, 0, 0.4) 0 2px 4px,
-    rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
-    rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
-}
-
-#histoCalls table {
-  width: 100%;
-  overflow-y: auto;
-  border-collapse: collapse;
-  background: #f1f1f1;
-}
-
-#histoCalls th {
-  background: #36395a;
-  color: #ffffff;
-  font-size: 1.2dvw;
-  position: sticky;
-  top: 0;
-}
-
-#histoCalls th,
-#histoCalls td {
-  padding: 0.5em;
-  text-align: center;
-}
-
-#histoCalls td:hover {
-  cursor: pointer !important;
-}
-
-#histoCalls tr:hover {
-  background: #36395a;
-}
-
-#histoCalls tr:hover td,
-#histoCalls tr:hover th {
-  color: #ffffff;
-}
-
-#histoCalls .tableContainer tr th:last-child {
-  width: 40%;
+  @include mixins.tableContainer;
+  & tr th:nth-child(6) {
+    width: 50%; // resize the with of the last column (commentaire), avoiding the too small column for the other columns.
+  }
 }
 
 #histoCalls button {

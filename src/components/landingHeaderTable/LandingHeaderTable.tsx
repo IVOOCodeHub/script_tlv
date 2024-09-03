@@ -47,8 +47,8 @@ export default function LandingHeaderTable(): ReactElement {
       )}
       {file && (
         <ProgressFile
-          progressMax={parseInt(file!.maxprogpaperiode)}
-          dateProgressMax={file!.dh_maxprogpaperiode}
+          progressMax={parseInt(file!.maxprogpafiche)}
+          dateProgressMax={file!.dh_maxprogpafiche}
         />
       )}
     </div>

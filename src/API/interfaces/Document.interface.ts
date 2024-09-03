@@ -2,6 +2,8 @@ export interface IDocuments {
   length: number
   forEach(arg0: (doc: IDocument) => void): unknown
   documents: IDocument[]
+
+  map(element: (offer: IDocument, index: number) => JSX.Element): any
 }
 
 export interface IDocument {

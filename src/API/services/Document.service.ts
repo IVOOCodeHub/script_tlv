@@ -6,9 +6,11 @@ const apiCalls: APICalls = new APICalls()
 
 export class DocumentService {
   getEndpoint: string
+  getHistoOfferEndpoint: string
 
   constructor() {
     this.getEndpoint = '/getDocuments.php'
+    this.getHistoOfferEndpoint = '/getHistoOffer.php'
   }
 
   async getDocuments(
@@ -28,6 +30,31 @@ export class DocumentService {
     try {
       const response: APIResponse<IDocuments> = await apiCalls.postRequest(
         this.getEndpoint,
+        params,
+      )
+      return response['data']
+    } catch (error) {
+      console.error(error)
+      throw error
+    }
+  }
+
+  async getHistoryOfferDocuments(
+    userCredentials: { matricule: string; password: string },
+    findDocuments: { refsource: string },
+  ): Promise<IDocuments | null> {
+    const params = {
+      ...userCredentials,
+      request: null,
+      args: {
+        findDocuments: {
+          refsource: findDocuments.refsource,
+        },
+      },
+    }
+    try {
+      const response: APIResponse<IDocuments> = await apiCalls.postRequest(
+        this.getHistoOfferEndpoint,
         params,
       )
       return response['data']

@@ -22,6 +22,7 @@ import WhoIsIt from '../../components/whoIsIt/WhoIsIt'
 import WhoAreWe from '../../components/whoAreWe/WhoAreWe'
 import HistoCalls from '../../components/histoCalls/HistoCalls'
 import HistoOffer from '../../components/histoOffer/HistoOffer'
+import PopupLink from '../../components/popupLink/PopupLink.tsx'
 
 export default function LandingPage(): ReactElement {
   const [ficheType, setFicheType] = useState<string | undefined>('')
@@ -73,14 +74,14 @@ export default function LandingPage(): ReactElement {
     setIsHistoOfferOpen(false)
   }
 
-  const toggleHistoCalls = ():void => {
+  const toggleHistoCalls = (): void => {
     setIsHistoCallsOpen(!isHistoCallsOpen)
     setIsWhoIsItOpen(false)
     setIsWhoAreWeOpen(false)
     setIsHistoOfferOpen(false)
   }
 
-  const toggleHistoOffer = ():void => {
+  const toggleHistoOffer = (): void => {
     setIsHistoOfferOpen(!isHistoOfferOpen)
     setIsHistoCallsOpen(false)
     setIsWhoIsItOpen(false)
@@ -121,13 +122,17 @@ export default function LandingPage(): ReactElement {
             <Button
               props={{
                 textContent: 'Historique appels',
-                onClick: () => {toggleHistoCalls()},
+                onClick: () => {
+                  toggleHistoCalls()
+                },
               }}
             />
             <Button
               props={{
                 textContent: 'Historique offres',
-                onClick: () => {toggleHistoOffer()},
+                onClick: () => {
+                  toggleHistoOffer()
+                },
               }}
             />
           </div>
@@ -136,12 +141,15 @@ export default function LandingPage(): ReactElement {
 
       {/* ================ MAIN CONTENT ================ */}
 
-      {!isWhoIsItOpen && !isWhoAreWeOpen &&  !isHistoCallsOpen && !isHistoOfferOpen && (
-        <LandingPageMain
-          setSelectedDate={setSelectedDate}
-          selectedDate={selectedDate}
-        />
-      )}
+      {!isWhoIsItOpen &&
+        !isWhoAreWeOpen &&
+        !isHistoCallsOpen &&
+        !isHistoOfferOpen && (
+          <LandingPageMain
+            setSelectedDate={setSelectedDate}
+            selectedDate={selectedDate}
+          />
+        )}
 
       {isWhoIsItOpen && <WhoIsIt toggleWhoIsIt={toggleWhoIsIt} />}
 
@@ -155,12 +163,8 @@ export default function LandingPage(): ReactElement {
 
       <section id={'landingFooter'} className={defineBackground()}>
         <div className={'leftContainer'}>
-          <Button
-            props={{ textContent: 'Objection', onClick: (): void => {} }}
-          />
-          <Button
-            props={{ textContent: "Plan d'appel", onClick: (): void => {} }}
-          />
+          <PopupLink url={'/objection'} text={'Objection'} />
+          <PopupLink url={'/callplan'} text={`Plan d'appel`} />
         </div>
         <div className={'rightContainer'}>
           <div className={'topWrapper'}>

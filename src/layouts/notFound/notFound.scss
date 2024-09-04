@@ -1,0 +1,33 @@
+@use '../../utils/styles/mixins' as mixins;
+
+#notFound {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em;
+  height: 100dvh;
+}
+
+#notFound figure {
+  width: 250px;
+}
+
+#notFound figure img {
+  width: 100%;
+}
+
+#notFound h1 {
+  font-size: 3em;
+}
+
+#notFound p {
+  font-size: 1.5em;
+}
+
+#notFound a {
+  margin-top: 3em;
+  text-decoration: none;
+  @include mixins.button();
+}

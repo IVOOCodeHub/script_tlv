@@ -125,11 +125,13 @@
   font-size: 16px !important;
 }
 
-#landingFooter .leftContainer button:first-of-type {
+#landingFooter .leftContainer a:first-of-type {
+  width: 145px;
   @include mixins.redButton();
 }
 
-#landingFooter .leftContainer button:last-of-type {
+#landingFooter .leftContainer a:last-of-type {
+  width: 145px;
   @include mixins.button();
 }
 

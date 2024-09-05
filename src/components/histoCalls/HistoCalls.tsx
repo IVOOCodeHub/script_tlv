@@ -5,7 +5,7 @@ import './histoCalls.scss'
 import {
   formatCampaignNameForBackEnd,
   formatDateForDisplay,
-} from '../../utils/scripts/Utils'
+} from '../../utils/scripts/Utils.ts'
 
 // types
 import { ReactElement } from 'react'

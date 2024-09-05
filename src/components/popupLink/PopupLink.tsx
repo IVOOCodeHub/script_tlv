@@ -13,8 +13,8 @@ export interface IPopupLinkProps {
 export default function PopupLink({
   url,
   text,
-  width = 600,
-  height = 400,
+  width = 1280,
+  height = 1024,
 }: IPopupLinkProps): ReactElement {
   const openPopup = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault()

@@ -14,7 +14,7 @@ import { FileContext } from '../../context/fileContext/FileContext'
 import ProgressFile from '../progressFile/ProgressFile'
 
 // utils
-import { formatDateForDisplay } from '../../utils/scripts/Utils'
+import { formatDateForDisplay } from '../../utils/scripts/Utils.ts'
 
 export default function LandingHeaderTable(): ReactElement {
   const { file } = useContext(FileContext)

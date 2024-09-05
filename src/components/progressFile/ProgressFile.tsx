@@ -5,7 +5,7 @@ import './progressFile.scss'
 import { ReactElement } from 'react'
 
 // utils
-import { formatDateForDisplayWithTime } from '../../utils/scripts/Utils'
+import { formatDateForDisplayWithTime } from '../../utils/scripts/Utils.ts'
 
 export default function ProgressFile({
   progressMax,

@@ -11,7 +11,7 @@ interface QuickRDVProps {
 import { useState, useEffect } from 'react'
 
 // utils
-import { formatPhoneNumber } from '../../utils/scripts/Utils'
+import { formatPhoneNumber } from '../../utils/scripts/Utils.ts'
 
 // components
 import Button from '../button/Button'

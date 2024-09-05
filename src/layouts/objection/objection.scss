@@ -1,0 +1,28 @@
+@use '../../utils/styles/variables' as vars;
+@use '../../utils/styles/mixins' as mixins;
+
+#objections {
+  min-height: 100dvh !important;
+  max-height: 100dvh !important;
+  background: #dddddd !important;
+  @include mixins.landingSections;
+}
+
+#objections h1 {
+  text-align: center;
+}
+
+#objections .buttonWrapper {
+  display: flex;
+  width: 985px;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+
+#objections .buttonWrapper button {
+  @include mixins.button;
+}
+
+#objections button.active {
+  @include mixins.whiteButton;
+}

@@ -1,0 +1,54 @@
+@use '../../utils/styles/variables' as vars;
+@use '../../utils/styles/mixins' as mixins;
+
+#objectionCardContainer {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+#objectionCardContainer ul {
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+}
+
+#objectionCardContainer ul li {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  background: vars.$detailsFicheBackground;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+#objectionCardContainer ul li p:nth-child(1) {
+  width: 30%;
+  line-height: 2em;
+  font-weight: 700;
+  font-size: 1.15em;
+}
+
+#objectionCardContainer ul li p:nth-child(2) {
+  width: 70%;
+  padding-left: 2em;
+  line-height: 2em;
+  font-size: 1.1em;
+}
+
+#objectionCardContainer .validTextColor {
+  color: #00cc66ff;
+}
+
+#objectionCardContainer .invalidTextColor {
+  color: #dc143cff;
+}
+
+#objectionCardContainer .bold {
+  font-weight: 700;
+}
+
+#objectionCardContainer .underline {
+  text-decoration: underline;
+}

@@ -19,7 +19,7 @@ import { useContext, useEffect } from 'react'
 import { LoaderContext } from '../../context/LoaderContext/LoaderContext.tsx'
 
 // utils
-import { formatDateForDisplay } from '../../utils/scripts/Utils'
+import { formatDateForDisplay } from '../../utils/scripts/Utils.ts'
 
 export default function HistoOffer({
   toggleHistoOffer,

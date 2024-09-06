@@ -13,13 +13,17 @@
 }
 
 #objections .buttonWrapper {
-  display: flex;
-  width: 985px;
-  flex-flow: row wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
+  gap: 0.5rem;
 }
 
 #objections .buttonWrapper button {
+  text-transform: uppercase;
+  height: 3rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
   @include mixins.button;
 }
 

@@ -14,7 +14,7 @@ import ObjectionCard from '../../components/objectionCard/ObjectionCard'
 import { objectionsContent } from '../../components/objectionCard/objectionsContent.tsx'
 
 export default function Objection(): ReactElement {
-  const [objectionIndex, setObjectionIndex] = useState<number>(0)
+  const [objectionIndex, setObjectionIndex] = useState<number>(6)
 
   const toggleObjection = (index: number) => {
     setObjectionIndex(index)

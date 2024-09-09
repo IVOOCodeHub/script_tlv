@@ -15,7 +15,7 @@
 #objections .buttonWrapper {
   display: grid;
   grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 #objections .buttonWrapper button {
@@ -24,6 +24,10 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  font-weight: 700 !important;
+  font-size: .8rem !important;
+  padding: 3px 7px !important;
+  letter-spacing: 0.05rem !important;
   @include mixins.button;
 }
 

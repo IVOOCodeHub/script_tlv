@@ -163,8 +163,8 @@ export default function LandingPage(): ReactElement {
 
       <section id={'landingFooter'} className={defineBackground()}>
         <div className={'leftContainer'}>
-          <PopupLink url={'/objection'} text={'Objection'} />
-          <PopupLink url={'/callplan'} text={`Plan d'appel`} />
+          <PopupLink url={'/script-tlv-v14/objection'} text={'Objection'} />
+          <PopupLink url={'/script-tlv-v14/callplan'} text={`Plan d'appel`} />
         </div>
         <div className={'rightContainer'}>
           <div className={'topWrapper'}>

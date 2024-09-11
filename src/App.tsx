@@ -21,14 +21,14 @@ import NotFound from './layouts/notFound/NotFound'
 
 function App(): ReactElement {
   return (
-    <Router>
+    <Router basename={'/script-tlv-v14'}>
       <Routes>
         <Route path={'/'} element={<Navigate to={'/auth'} />} />
         <Route path={'/auth'} element={<AuthForm />} />
         <Route path={'/landing'} element={<LandingPage />} />
         <Route path={'/objection'} element={<Objection />} />
         <Route path={'/callplan'} element={<CallPlan />} />
-        <Route path={'*'} element={<NotFound /> } />
+        <Route path={'*'} element={<NotFound />} />
       </Routes>
     </Router>
   )

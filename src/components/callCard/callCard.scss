@@ -1,0 +1,103 @@
+@use '../../utils/styles/mixins' as mixins;
+@use '../../utils/styles/variables' as vars;
+
+#callCardContainer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+#callCardContainer .callCardWrapper {
+  width: 24%;
+  padding: 1em;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+  background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+}
+
+#callCardContainer .callCardWrapper li {
+  padding: 1em;
+}
+
+#callCardContainer .callCardWrapper .arrowDown {
+  font-size: 2em;
+}
+
+#callCardContainer .callCardWrapper li h2 {
+  background: white;
+  padding: 0.5em;
+}
+
+#callCardContainer .callCardWrapper li h3 {
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  font-weight: 700;
+  background: white;
+  padding: 0.5em;
+}
+
+#callCardContainer .callCardWrapper li p {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+#callCardContainer .callCardWrapper li .asideImportant,
+#callCardContainer article p .asideImportant {
+  font-weight: 700;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#callCardContainer .callCardWrapper li .asideImportant {
+  font-size: 0.96em;
+  line-height: 1.5em;
+}
+
+#callCardContainer .callCardWrapper li .asideItalic,
+#callCardContainer article p .asideItalic {
+  font-weight: 400;
+  font-style: oblique;
+}
+
+#callCardContainer article {
+  width: 74%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  background: linear-gradient(
+    to top,
+    adjust-color(#ff7e5f, $lightness: 20%),
+    adjust-color(#feb47b, $lightness: 10%)
+  );
+}
+
+#callCardContainer article p {
+  font-size: 1.1em;
+  line-height: 2em;
+}
+
+#callCardContainer article p span {
+}
+
+#callCardContainer article p br {
+}
+
+#callCardContainer article .nextLink {
+  position: absolute;
+  font-size: 3em;
+  bottom: 0.1em;
+  right: 0.1em;
+  cursor: pointer;
+}
+
+
+// sub card (commande & assise de commande)

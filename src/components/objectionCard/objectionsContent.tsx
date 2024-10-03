@@ -358,12 +358,19 @@ export const objectionsContent = [
         de travail en cours à l'atelier.
       </p>
     ),
+    keepArgumentation: (
+      <p>
+        <span className={'invalidTextColor'}>– Retour au PA –</span>
+        <br />
+        ... c'est pourquoi je venais voir avec vous...
+      </p>
+    ),
   },
   {
     name: 'Aide en local',
     reformulation: (
       <p>
-        Vous soutenez déjà un de nos confrères de votre région, c'est bien cela
+      Vous soutenez déjà un de nos confrères de votre région, c'est bien cela
         ?<br />
         <span className={'validTextColor'}>Si OUI</span> –&gt; Continuer.
         <br /> <span className={'invalidTextColor'}>Si NON</span> –&gt; AIDE

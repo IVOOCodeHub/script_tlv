@@ -1,0 +1,42 @@
+@use '../../utils/styles/variables' as vars;
+@use '../../utils/styles/mixins' as mixins;
+
+#callPlan {
+  min-height: 100dvh !important;
+  max-height: 100dvh !important;
+  background: #dddddd !important;
+  @include mixins.landingSections;
+}
+
+#callPlan h1 {
+  text-align: center;
+}
+
+#callPlan blockquote {
+  text-align: center;
+  font-style: oblique;
+  font-size: 0.8em;
+}
+
+#callPlan .buttonWrapper {
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
+  gap: 0.3rem;
+}
+
+#callPlan .buttonWrapper button {
+  text-transform: uppercase;
+  height: 3rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-weight: 700 !important;
+  font-size: .8rem !important;
+  padding: 3px 7px !important;
+  letter-spacing: 0.05rem !important;
+  @include mixins.button;
+}
+
+#callPlan button.active {
+  @include mixins.whiteButton;
+}
